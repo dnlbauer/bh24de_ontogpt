@@ -1,0 +1,107 @@
+id: https://example.com/simple_schema
+name: simple
+title: Very simple template
+description: >-
+  A test template
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  simple: https://example.com/simple_schema/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  linkml: https://w3id.org/linkml/
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITAXON_
+
+default_prefix: simple
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+
+classes:
+
+  HabitatAnnotations:
+    description: A set of extracted annotations from a habitat describing the location and present organisms
+    tree_root: true  # this is the main entrypoint of annotations
+    attributes:
+      species:
+        annotations:
+          prompt: >-
+            a semicolon-separated list of taxonomic species extracted from the input.
+            A species is a taxonomic rank below the genus and used in biology to classify organisms.
+            Example species: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex
+        multivalued: true
+        range: Species
+      genus:
+        annotations:
+          prompt: >-
+            a semicolon-separated list of taxonomic genera (genus).
+            A genus is a taxonomic rank above species. It is the first part of the species name.
+            Examples: For the species Panthera leo, the corresponding genus is Panthera.
+            For Lathyrus spp., the genus is Lathyrus.
+        multivalued: true
+        range: Genus
+      environments:
+        annotations:
+          prompt: >-
+            a semicolon-separated list of scientific environmental terms translated to english.
+            Examples: cave entrance, montane grassland, river bed.
+        multivalued: true
+        range: Environment
+      location:
+        description: the sites at which the study was conducted
+        annotations:
+          prompt: >-
+            a semicolon-separated list of sites at which the study was conducted. Give specific place names.
+            If you cannot find a specific place name leave the field as empty.
+        range: Location
+        multivalued: true
+      characteristics:
+        range: Characteristic
+        multivalued: true
+        description: >-
+          a semicolon-separated list of characteristics of the found environment or location translated to english.
+          If you cannot find characteristics, leave the field as empty.
+
+  Genus:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      prompt: >-
+        The taxonomic genus of an organism
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Species:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      prompt: >-
+        The taxonomic species of an organism.
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Environment:
+    is_a: NamedEntity
+    id_prefixes:
+      - ENVO
+      - ENVTHES
+    annotations:
+      annotators: sqlite:obo:envo, bioportal:envthes
+
+  Location:
+    is_a: NamedEntity
+    id_prefixes:
+      - ENVO
+      - ENVTHES
+    annotations:
+      annotators: sqlite:obo:envo, bioportal:envthes
+
+
+  Characteristic:
+    is_a: NamedEntity
+    annotations:
+      prompt: >-
+        The characteristic of an environment.
+

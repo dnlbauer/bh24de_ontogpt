@@ -24,19 +24,44 @@ classes:
     tree_root: true  # this is the main entrypoint of annotations
     attributes:
       species:
-        description: The species of an organism.
-        multivalued: false
-        range: Organism
+        description: >-
+          From the input, extract a semicolon-separated list of taxonomic species.
+          A species is a taxonomic rank below the genus and used in biology to classify organisms.
+          Example species: Panthera leo, Lathyrus vestitus, Boa constrictor, Tyrannosaurus rex.
+          Example: For the input "Tyrannnosaurus rex is a dangerous dinosaur", the output should be "Tyrannosaurus rex"
+        multivalued: true
+        range: Species
       genus:
-        description: The genus corresponding to the species.
-        multivalued: false
-        range: Organism
+        description: >-
+          From the input, extract a semicolon-separated list of taxonomic genera (genus).
+          A genus is a taxonomic rank above species and below family
+          and used in biology to classify organisms.
+          Examples: For the species Panthera leo, the corresponding genus is Panthera;
+          For the species Lathyrus vestitus, the genus should be extracted as Lathyrus.
+          For the list Lathyrus vestitus, Tyrannosaurus rex, Boa constrictor,
+          the genera should be extracted as Lathyrus;Tyrannosaurus;Boa
+          In the input, a genus can be found either within a family (Example: Lathyrus vestitus is a pea)
+          or without the family (Example: Lathyrus is pea)
+        multivalued: true
+        range: Genus
 
-  Organism:
+  Genus:
     is_a: NamedEntity
     id_prefixes:
       - NCBITaxon
     # these annotations are somehow related to ontology access kit.
     annotations:
+      prompt: >-
+        The taxonomic genus of an organism
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Species:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      prompt: >-
+        The taxonomic species of an organism.
       annotators: gilda:, sqlite:obo:ncbitaxon
 
