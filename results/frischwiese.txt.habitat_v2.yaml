@@ -1,0 +1,73 @@
+---
+input_text: Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum,
+  Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+raw_completion_output: |2-
+   species: Hieracium caespitosum;Hieracium glomeratum;Hieracium iseranum;Hieracium lactucella;Hieracium pilosella;Hieracium piloselliflorum
+     genus: Hieracium
+     environments: Meadow (Magere Frischwiese is German for a small, barren or sparse meadow)
+     characteristics: undefined
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <semicolon-separated list of species. A species is a taxonomic rank used in biology to classify organisms. Examples: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex,C. elegans>
+  genus: <a semicolon-separated list of taxonomic genera (genus). A genus is a taxonomic rank above species. The genus can be given in various formats. For example, Lathyrus vestitus, L.vestitus, Lathyrus spp. all are of the genus Lathyrus Sometimes, the genus can be inferred from its common name. For example, the genus of a birch tree is Betula.>
+  environments: <an English term that best classifies the described region. If there is a matching term from the ENVO ontology, this should be used. If no description is given or the description is insufficent, this field should be undefined.>
+  characteristics: <a semicolon-separated list of characteristics of the found environment translated to english. If there are no characteristics, this is undefined. Examples: For "an oak forest located at the north east slope of a hill", this is "north east slope of a hill". For "on a mossy stone", this is "stone;mossy">
+
+
+  Text:
+  Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum, Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+
+  ===
+
+extracted_object:
+  species:
+    - NCBITaxon:221190
+    - NCBITaxon:221198
+    - NCBITaxon:221200
+    - NCBITaxon:221202
+    - NCBITaxon:221204
+    - NCBITaxon:221205
+  genus:
+    - NCBITaxon:102745
+  environments: ENVTHES:USLterCV_330
+  characteristics:
+    - AUTO:undefined
+named_entities:
+  - id: NCBITaxon:221190
+    label: Hieracium caespitosum
+    original_spans:
+      - 33:53
+  - id: NCBITaxon:221198
+    label: Hieracium glomeratum
+    original_spans:
+      - 56:75
+  - id: NCBITaxon:221200
+    label: Hieracium iseranum
+    original_spans:
+      - 78:95
+  - id: NCBITaxon:221202
+    label: Hieracium lactucella
+    original_spans:
+      - 98:117
+  - id: NCBITaxon:221204
+    label: Hieracium pilosella
+    original_spans:
+      - 120:138
+  - id: NCBITaxon:221205
+    label: Hieracium piloselliflorum
+    original_spans:
+      - 141:165
+  - id: NCBITaxon:102745
+    label: Hieracium
+    original_spans:
+      - 33:41
+      - 56:64
+      - 78:86
+      - 98:106
+      - 120:128
+      - 141:149
+  - id: ENVTHES:USLterCV_330
+    label: Meadow (Magere Frischwiese is German for a small, barren or sparse meadow)
+  - id: AUTO:undefined
+    label: undefined

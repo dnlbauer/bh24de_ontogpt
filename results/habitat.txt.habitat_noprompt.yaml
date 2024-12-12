@@ -1,0 +1,46 @@
+---
+input_text: |
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+raw_completion_output: |2-
+   species: Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea, Berkheya sp., Lippia javani
+     genus: Helichrysum, Vernonia, Gladiolus (Gladiola), Echinops (Echinopsis), Berkheya, Lippia
+     environments: Montanes Grassgebiet mit Buschgruppen; Hang nach Westen abfallend; Steiniger, von Asche dunkel gefärbter Sand- Lateritboden
+     characteristics: Not specified in the text (description focuses on the environment and species, not their characteristics)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <semicolon-separated list of speciess>
+  genus: <semicolon-separated list of genuss>
+  environments: <the value for environments>
+  characteristics: <semicolon-separated list of characteristicss>
+
+
+  Text:
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+
+
+  ===
+
+extracted_object:
+  species:
+    - AUTO:Helichrysum%20spp.%2C%20Vernonia%20spp.%2C%20Gladiolus%20sp.%2C%20Echinops%20gigantea%2C%20Berkheya%20sp.%2C%20Lippia%20javani
+  genus:
+    - NCBITaxon:183648
+  environments: ENVTHES:20920
+  characteristics:
+    - AUTO:Not%20specified%20in%20the%20text%20%28description%20focuses%20on%20the%20environment%20and%20species%2C%20not%20their%20characteristics%29
+named_entities:
+  - id: 
+      AUTO:Helichrysum%20spp.%2C%20Vernonia%20spp.%2C%20Gladiolus%20sp.%2C%20Echinops%20gigantea%2C%20Berkheya%20sp.%2C%20Lippia%20javani
+    label: Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea, Berkheya
+      sp., Lippia javani
+  - id: NCBITaxon:183648
+    label: Helichrysum, Vernonia, Gladiolus (Gladiola), Echinops (Echinopsis), Berkheya,
+      Lippia
+  - id: ENVTHES:20920
+    label: Montanes Grassgebiet mit Buschgruppen; Hang nach Westen abfallend; Steiniger,
+      von Asche dunkel gefärbter Sand- Lateritboden
+  - id: 
+      AUTO:Not%20specified%20in%20the%20text%20%28description%20focuses%20on%20the%20environment%20and%20species%2C%20not%20their%20characteristics%29
+    label: Not specified in the text (description focuses on the environment and species,
+      not their characteristics)

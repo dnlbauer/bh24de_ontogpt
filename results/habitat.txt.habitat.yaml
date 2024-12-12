@@ -1,0 +1,77 @@
+---
+input_text: |
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+raw_completion_output: |2-
+   species: Helichrysum spp.;Vernonia spp.;Gladiolus sp.;Echinops gigantea ;Berkheya sp.;Lippia javani
+     genus: (not provided as the given text does not explicitly specify genera)
+     environments: Montanes Grassgebiet, Lateritboden
+     location: (not provided as no specific place name is mentioned)
+     characteristics: grassland, sandy lateritic soil, diverse flora (Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <a semicolon-separated list of taxonomic species extracted from the input. A species is a taxonomic rank below the genus and used in biology to classify organisms. Example species: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex>
+  genus: <a semicolon-separated list of taxonomic genera (genus). A genus is a taxonomic rank above species. It is the first part of the species name. Examples: For the species Panthera leo, the corresponding genus is Panthera. For Lathyrus spp., the genus is Lathyrus.>
+  environments: <a semicolon-separated list of scientific environmental terms translated to english. Examples: cave entrance, montane grassland, river bed.>
+  location: <a semicolon-separated list of sites at which the study was conducted. Give specific place names. If you cannot find a specific place name leave the field as empty.>
+  characteristics: <a semicolon-separated list of characteristics of the found environment or location translated to english. If you cannot find characteristics, leave the field as empty.>
+
+
+  Text:
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+
+
+  ===
+
+extracted_object:
+  species:
+    - AUTO:Helichrysum%20spp.
+    - AUTO:Vernonia%20spp.
+    - NCBITaxon:3136809
+    - AUTO:Echinops%20gigantea
+    - NCBITaxon:3136807
+    - AUTO:Lippia%20javani
+  genus:
+    - AUTO:%28not%20provided%20as%20the%20given%20text%20does%20not%20explicitly%20specify%20genera%29
+  environments:
+    - AUTO:Montanes%20Grassgebiet%2C%20Lateritboden
+  location:
+    - ENVTHES:10346
+  characteristics:
+    - AUTO:grassland%2C%20sandy%20lateritic%20soil%2C%20diverse%20flora%20%28Helichrysum%20spp.%2C%20Vernonia%20spp.%2C%20Gladiolus%20sp.%2C%20Echinops%20gigantea%20%2C%20Berkheya%20sp.%2C%20Lippia%20javani%29
+named_entities:
+  - id: AUTO:Helichrysum%20spp.
+    label: Helichrysum spp.
+    original_spans:
+      - 155:170
+  - id: AUTO:Vernonia%20spp.
+    label: Vernonia spp.
+    original_spans:
+      - 173:185
+  - id: NCBITaxon:3136809
+    label: Gladiolus sp.
+    original_spans:
+      - 188:200
+  - id: AUTO:Echinops%20gigantea
+    label: Echinops gigantea
+    original_spans:
+      - 203:219
+  - id: NCBITaxon:3136807
+    label: Berkheya sp.
+    original_spans:
+      - 223:234
+  - id: AUTO:Lippia%20javani
+    label: Lippia javani
+    original_spans:
+      - 237:249
+  - id: 
+      AUTO:%28not%20provided%20as%20the%20given%20text%20does%20not%20explicitly%20specify%20genera%29
+    label: (not provided as the given text does not explicitly specify genera)
+  - id: AUTO:Montanes%20Grassgebiet%2C%20Lateritboden
+    label: Montanes Grassgebiet, Lateritboden
+  - id: ENVTHES:10346
+    label: (not provided as no specific place name is mentioned)
+  - id: 
+      AUTO:grassland%2C%20sandy%20lateritic%20soil%2C%20diverse%20flora%20%28Helichrysum%20spp.%2C%20Vernonia%20spp.%2C%20Gladiolus%20sp.%2C%20Echinops%20gigantea%20%2C%20Berkheya%20sp.%2C%20Lippia%20javani%29
+    label: grassland, sandy lateritic soil, diverse flora (Helichrysum spp., Vernonia
+      spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani)

@@ -1,0 +1,80 @@
+---
+input_text: Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum,
+  Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+raw_completion_output: |2-
+   species: Hieracium caespitosum;Hieracium glomeratum;Hieracium iseranum;Hieracium lactucella;Hieracium pilosella;Hieracium piloselliflorum
+     genus: Hieracium
+     environments: Magere Frischwiese (translated to Grassy meadow)
+     location: empty
+     characteristics: Grassy with the presence of several species of Hieracium
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <a semicolon-separated list of taxonomic species extracted from the input. A species is a taxonomic rank below the genus and used in biology to classify organisms. Example species: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex>
+  genus: <a semicolon-separated list of taxonomic genera (genus). A genus is a taxonomic rank above species. It is the first part of the species name. Examples: For the species Panthera leo, the corresponding genus is Panthera. For Lathyrus spp., the genus is Lathyrus.>
+  environments: <a semicolon-separated list of scientific environmental terms translated to english. Examples: cave entrance, montane grassland, river bed.>
+  location: <a semicolon-separated list of sites at which the study was conducted. Give specific place names. If you cannot find a specific place name leave the field as empty.>
+  characteristics: <a semicolon-separated list of characteristics of the found environment or location translated to english. If you cannot find characteristics, leave the field as empty.>
+
+
+  Text:
+  Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum, Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+
+  ===
+
+extracted_object:
+  species:
+    - NCBITaxon:221190
+    - NCBITaxon:221198
+    - NCBITaxon:221200
+    - NCBITaxon:221202
+    - NCBITaxon:221204
+    - NCBITaxon:221205
+  genus:
+    - NCBITaxon:102745
+  environments:
+    - ENVTHES:USLterCV_330
+  location:
+    - AUTO:empty
+  characteristics:
+    - AUTO:Grassy%20with%20the%20presence%20of%20several%20species%20of%20Hieracium
+named_entities:
+  - id: NCBITaxon:221190
+    label: Hieracium caespitosum
+    original_spans:
+      - 33:53
+  - id: NCBITaxon:221198
+    label: Hieracium glomeratum
+    original_spans:
+      - 56:75
+  - id: NCBITaxon:221200
+    label: Hieracium iseranum
+    original_spans:
+      - 78:95
+  - id: NCBITaxon:221202
+    label: Hieracium lactucella
+    original_spans:
+      - 98:117
+  - id: NCBITaxon:221204
+    label: Hieracium pilosella
+    original_spans:
+      - 120:138
+  - id: NCBITaxon:221205
+    label: Hieracium piloselliflorum
+    original_spans:
+      - 141:165
+  - id: NCBITaxon:102745
+    label: Hieracium
+    original_spans:
+      - 33:41
+      - 56:64
+      - 78:86
+      - 98:106
+      - 120:128
+      - 141:149
+  - id: ENVTHES:USLterCV_330
+    label: Magere Frischwiese (translated to Grassy meadow)
+  - id: AUTO:empty
+    label: empty
+  - id: AUTO:Grassy%20with%20the%20presence%20of%20several%20species%20of%20Hieracium
+    label: Grassy with the presence of several species of Hieracium

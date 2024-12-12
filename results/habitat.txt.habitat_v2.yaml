@@ -1,0 +1,75 @@
+---
+input_text: |
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+raw_completion_output: |2-
+   species: Helichrysum spp.;Vernonia spp.;Gladiolus sp.;Echinops gigantea ;Berkheya sp.;Lippia javani
+     genus: Undefined (Since no specific species names have a genus specified and common names like Helichrysum, Vernonia are not universally accepted genera)
+     environments: Montane Grassland
+     characteristics: west-facing slope;stone;dark-ash colored sand-lateritic soil
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <semicolon-separated list of species. A species is a taxonomic rank used in biology to classify organisms. Examples: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex,C. elegans>
+  genus: <a semicolon-separated list of taxonomic genera (genus). A genus is a taxonomic rank above species. The genus can be given in various formats. For example, Lathyrus vestitus, L.vestitus, Lathyrus spp. all are of the genus Lathyrus Sometimes, the genus can be inferred from its common name. For example, the genus of a birch tree is Betula.>
+  environments: <an English term that best classifies the described region. If there is a matching term from the ENVO ontology, this should be used. If no description is given or the description is insufficent, this field should be undefined.>
+  characteristics: <a semicolon-separated list of characteristics of the found environment translated to english. If there are no characteristics, this is undefined. Examples: For "an oak forest located at the north east slope of a hill", this is "north east slope of a hill". For "on a mossy stone", this is "stone;mossy">
+
+
+  Text:
+  Montanes Grassgebiet mit Buschgruppen. Hang nach Westen abfallend. Steiniger, von Asche dunkel gefärbter Sand- Lateritboden. Begleitflora vielfältig, u.a. Helichrysum spp., Vernonia spp., Gladiolus sp., Echinops gigantea , Berkheya sp., Lippia javani
+
+
+  ===
+
+extracted_object:
+  species:
+    - AUTO:Helichrysum%20spp.
+    - AUTO:Vernonia%20spp.
+    - NCBITaxon:3136809
+    - AUTO:Echinops%20gigantea
+    - NCBITaxon:3136807
+    - AUTO:Lippia%20javani
+  genus:
+    - AUTO:Undefined%20%28Since%20no%20specific%20species%20names%20have%20a%20genus%20specified%20and%20common%20names%20like%20Helichrysum%2C%20Vernonia%20are%20not%20universally%20accepted%20genera%29
+  environments: ENVO:01001808
+  characteristics:
+    - AUTO:west-facing%20slope
+    - AUTO:stone
+    - AUTO:dark-ash%20colored%20sand-lateritic%20soil
+named_entities:
+  - id: AUTO:Helichrysum%20spp.
+    label: Helichrysum spp.
+    original_spans:
+      - 155:170
+  - id: AUTO:Vernonia%20spp.
+    label: Vernonia spp.
+    original_spans:
+      - 173:185
+  - id: NCBITaxon:3136809
+    label: Gladiolus sp.
+    original_spans:
+      - 188:200
+  - id: AUTO:Echinops%20gigantea
+    label: Echinops gigantea
+    original_spans:
+      - 203:219
+  - id: NCBITaxon:3136807
+    label: Berkheya sp.
+    original_spans:
+      - 223:234
+  - id: AUTO:Lippia%20javani
+    label: Lippia javani
+    original_spans:
+      - 237:249
+  - id: 
+      AUTO:Undefined%20%28Since%20no%20specific%20species%20names%20have%20a%20genus%20specified%20and%20common%20names%20like%20Helichrysum%2C%20Vernonia%20are%20not%20universally%20accepted%20genera%29
+    label: Undefined (Since no specific species names have a genus specified and common
+      names like Helichrysum, Vernonia are not universally accepted genera)
+  - id: ENVO:01001808
+    label: Montane Grassland
+  - id: AUTO:west-facing%20slope
+    label: west-facing slope
+  - id: AUTO:stone
+    label: stone
+  - id: AUTO:dark-ash%20colored%20sand-lateritic%20soil
+    label: dark-ash colored sand-lateritic soil

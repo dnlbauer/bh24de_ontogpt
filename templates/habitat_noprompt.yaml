@@ -1,0 +1,64 @@
+id: https://example.com/simple_schema
+name: simple
+title: Very simple template
+description: >-
+  A test template
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  simple: https://example.com/simple_schema/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  linkml: https://w3id.org/linkml/
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITAXON_
+
+default_prefix: simple
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+
+classes:
+
+  HabitatAnnotations:
+    tree_root: true  # this is the main entrypoint of annotations
+    attributes:
+      species:
+        multivalued: true
+        range: Species
+      genus:
+        multivalued: true
+        range: Genus
+      environments:
+        multivalued: false
+        range: Environment
+      characteristics:
+        range: Characteristic
+        multivalued: true
+
+  Genus:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Species:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Environment:
+    is_a: NamedEntity
+    id_prefixes:
+      - ENVO
+      - ENVTHES
+    annotations:
+      annotators: sqlite:obo:envo, bioportal:envthes
+
+  Characteristic:
+    is_a: NamedEntity
+

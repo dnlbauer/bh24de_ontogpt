@@ -1,0 +1,116 @@
+---
+input_text: open Pinus cembra-Larix forest on stony slope, with Vaccinium myrtillus,
+  Rhododendron ferrugineum, Alnus incana, Sambucus racemosa, Homogyne alpina, below
+  stone overgrown with moss
+raw_completion_output: |2-
+   species: Pinus cembra;Larix sp.;Vaccinium myrtillus;Rhododendron ferrugineum;Alnus incana;Sambucus racemosa;Homogyne alpina
+     genus: Pinus;Larix;Vaccinium;Rhododendron;Alnus;Sambucus;Homogyne
+     environments: open Pinus cembra-Larix forest;stony slope
+     location: <empty>
+     characteristics: stony slope, overgrown with moss
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <a semicolon-separated list of taxonomic species extracted from the input. A species is a taxonomic rank below the genus and used in biology to classify organisms. Example species: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex>
+  genus: <a semicolon-separated list of taxonomic genera (genus). A genus is a taxonomic rank above species. It is the first part of the species name. Examples: For the species Panthera leo, the corresponding genus is Panthera. For Lathyrus spp., the genus is Lathyrus.>
+  environments: <a semicolon-separated list of scientific environmental terms translated to english. Examples: cave entrance, montane grassland, river bed.>
+  location: <a semicolon-separated list of sites at which the study was conducted. Give specific place names. If you cannot find a specific place name leave the field as empty.>
+  characteristics: <a semicolon-separated list of characteristics of the found environment or location translated to english. If you cannot find characteristics, leave the field as empty.>
+
+
+  Text:
+  open Pinus cembra-Larix forest on stony slope, with Vaccinium myrtillus, Rhododendron ferrugineum, Alnus incana, Sambucus racemosa, Homogyne alpina, below stone overgrown with moss
+
+  ===
+
+extracted_object:
+  species:
+    - NCBITaxon:58041
+    - NCBITaxon:49764
+    - NCBITaxon:180763
+    - NCBITaxon:49622
+    - NCBITaxon:3516
+    - NCBITaxon:4203
+    - NCBITaxon:257033
+  genus:
+    - NCBITaxon:3337
+    - NCBITaxon:3325
+    - NCBITaxon:13749
+    - NCBITaxon:4346
+    - NCBITaxon:3515
+    - NCBITaxon:4201
+    - NCBITaxon:257032
+  environments:
+    - ENVTHES:10232
+    - AUTO:stony%20slope
+  location:
+    - AUTO:%3Cempty%3E
+  characteristics:
+    - AUTO:stony%20slope%2C%20overgrown%20with%20moss
+named_entities:
+  - id: NCBITaxon:58041
+    label: Pinus cembra
+    original_spans:
+      - 5:16
+  - id: NCBITaxon:49764
+    label: Larix sp.
+  - id: NCBITaxon:180763
+    label: Vaccinium myrtillus
+    original_spans:
+      - 52:70
+  - id: NCBITaxon:49622
+    label: Rhododendron ferrugineum
+    original_spans:
+      - 73:96
+  - id: NCBITaxon:3516
+    label: Alnus incana
+    original_spans:
+      - 99:110
+  - id: NCBITaxon:4203
+    label: Sambucus racemosa
+    original_spans:
+      - 113:129
+  - id: NCBITaxon:257033
+    label: Homogyne alpina
+    original_spans:
+      - 132:146
+  - id: NCBITaxon:3337
+    label: Pinus
+    original_spans:
+      - 5:9
+  - id: NCBITaxon:3325
+    label: Larix
+    original_spans:
+      - 18:22
+  - id: NCBITaxon:13749
+    label: Vaccinium
+    original_spans:
+      - 52:60
+  - id: NCBITaxon:4346
+    label: Rhododendron
+    original_spans:
+      - 73:84
+  - id: NCBITaxon:3515
+    label: Alnus
+    original_spans:
+      - 99:103
+  - id: NCBITaxon:4201
+    label: Sambucus
+    original_spans:
+      - 113:120
+  - id: NCBITaxon:257032
+    label: Homogyne
+    original_spans:
+      - 132:139
+  - id: ENVTHES:10232
+    label: open Pinus cembra-Larix forest
+    original_spans:
+      - 0:29
+  - id: AUTO:stony%20slope
+    label: stony slope
+    original_spans:
+      - 34:44
+  - id: AUTO:%3Cempty%3E
+    label: <empty>
+  - id: AUTO:stony%20slope%2C%20overgrown%20with%20moss
+    label: stony slope, overgrown with moss

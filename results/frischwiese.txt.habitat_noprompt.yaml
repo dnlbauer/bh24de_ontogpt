@@ -1,0 +1,81 @@
+---
+input_text: Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum,
+  Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+raw_completion_output: |2-
+   species: Magere Frischwiese; Hieracium caespitosum; Hieracium glomeratum; Hieracium iseranum; Hieracium lactucella; Hieracium pilosella; Hieracium piloselliflorum
+     genus: Hieracium
+     environments: Not specified in the text (assumed to be meadow, based on 'Magere Frischwiese', which translates to 'Narrow Peppergrass Meadow' in English)
+     characteristics: Not specified in the text (it is known that Thistle-like plants often have prickly leaves and flower heads)
+prompt: |+
+  From the text below, extract the following entities in the following format:
+
+  species: <semicolon-separated list of speciess>
+  genus: <semicolon-separated list of genuss>
+  environments: <the value for environments>
+  characteristics: <semicolon-separated list of characteristicss>
+
+
+  Text:
+  Magere Frischwiese; zusammen mit Hieracium caespitosum, Hieracium glomeratum, Hieracium iseranum, Hieracium lactucella, Hieracium pilosella, Hieracium piloselliflorum
+
+  ===
+
+extracted_object:
+  species:
+    - AUTO:Magere%20Frischwiese
+    - NCBITaxon:221190
+    - NCBITaxon:221198
+    - NCBITaxon:221200
+    - NCBITaxon:221202
+    - NCBITaxon:221204
+    - NCBITaxon:221205
+  genus:
+    - NCBITaxon:102745
+  environments: ENVTHES:USLterCV_330
+  characteristics:
+    - AUTO:Not%20specified%20in%20the%20text%20%28it%20is%20known%20that%20Thistle-like%20plants%20often%20have%20prickly%20leaves%20and%20flower%20heads%29
+named_entities:
+  - id: AUTO:Magere%20Frischwiese
+    label: Magere Frischwiese
+    original_spans:
+      - 0:17
+  - id: NCBITaxon:221190
+    label: Hieracium caespitosum
+    original_spans:
+      - 33:53
+  - id: NCBITaxon:221198
+    label: Hieracium glomeratum
+    original_spans:
+      - 56:75
+  - id: NCBITaxon:221200
+    label: Hieracium iseranum
+    original_spans:
+      - 78:95
+  - id: NCBITaxon:221202
+    label: Hieracium lactucella
+    original_spans:
+      - 98:117
+  - id: NCBITaxon:221204
+    label: Hieracium pilosella
+    original_spans:
+      - 120:138
+  - id: NCBITaxon:221205
+    label: Hieracium piloselliflorum
+    original_spans:
+      - 141:165
+  - id: NCBITaxon:102745
+    label: Hieracium
+    original_spans:
+      - 33:41
+      - 56:64
+      - 78:86
+      - 98:106
+      - 120:128
+      - 141:149
+  - id: ENVTHES:USLterCV_330
+    label: Not specified in the text (assumed to be meadow, based on 'Magere Frischwiese',
+      which translates to 'Narrow Peppergrass Meadow' in English)
+  - id: 
+      AUTO:Not%20specified%20in%20the%20text%20%28it%20is%20known%20that%20Thistle-like%20plants%20often%20have%20prickly%20leaves%20and%20flower%20heads%29
+    label: Not specified in the text (it is known that Thistle-like plants often have
+      prickly leaves and flower heads)
