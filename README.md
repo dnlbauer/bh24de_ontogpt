@@ -58,4 +58,9 @@ and more details about how to extract ENVO terms.
 
 ## results
 
-All templates were applied to 3 examples "habitat", "frischwiese" and "pine forest". See folder [results](results)
+All templates were applied to 3 examples "habitat", "frischwiese" and "pine forest". See folder [results](results).
+All results were calculated using ollama/mistral:latest (f974a74358d6):
+
+```bash
+ontogpt extract -i <input> -t <template> --show-prompt -m ollama/mistral -o <output>
+```
