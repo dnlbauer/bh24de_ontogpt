@@ -1,0 +1,98 @@
+id: https://example.com/simple_schema
+name: simple
+title: Very simple template
+description: >-
+  A test template
+license: https://creativecommons.org/publicdomain/zero/1.0/
+prefixes:
+  simple: https://example.com/simple_schema/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  linkml: https://w3id.org/linkml/
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITAXON_
+
+default_prefix: simple
+default_range: string
+
+imports:
+  - linkml:types
+  - core
+
+classes:
+
+  HabitatAnnotations:
+    description: A set of extracted annotations from a habitat describing the location and present organisms
+    tree_root: true  # this is the main entrypoint of annotations
+    attributes:
+      species:
+        description: >-
+          semicolon-separated list of species.
+          A species is a taxonomic rank used in biology to classify organisms.
+          Examples: Panthera leo;Lathyrus vestitus;Boa constrictor;Tyrannosaurus rex,C. elegans
+        multivalued: true
+        range: Species
+      genus:
+        description: >-
+            a semicolon-separated list of taxonomic genera (genus).
+            A genus is a taxonomic rank above species.
+            The genus can be given in various formats.
+            For example, Lathyrus vestitus, L.vestitus, Lathyrus spp. all are of the genus Lathyrus
+            Sometimes, the genus can be inferred from its common name.
+            For example, the genus of a birch tree is Betula.
+        annotations:
+          prompt.example: Lathyrus;Panthera;Tyrannosaurus,Caenorhabditis
+        multivalued: true
+        range: Genus
+      environments:
+        description: >-
+            an English term that best classifies the described region.
+            If there is a matching term from the ENVO ontology, this should be used.
+            If no description is given or the description is insufficent, this field should be undefined.
+        annotations:
+          prompt.example: cave entrance;river island; artificial reef;oak woodland
+        multivalued: false
+        range: Environment
+      characteristics:
+        range: Characteristic
+        multivalued: true
+        description: >-
+          a semicolon-separated list of characteristics of the found environment translated to english.
+          If there are no characteristics, this is undefined.
+          Examples: For "an oak forest located at the north east slope of a hill", this is
+          "north east slope of a hill". For "on a mossy stone", this is "stone;mossy"
+
+  Genus:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      prompt: >-
+        The taxonomic genus of an organism
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Species:
+    is_a: NamedEntity
+    id_prefixes:
+      - NCBITaxon
+    # these annotations are somehow related to ontology access kit.
+    annotations:
+      prompt: >-
+        The taxonomic species of an organism.
+      annotators: gilda:, sqlite:obo:ncbitaxon
+
+  Environment:
+    is_a: NamedEntity
+    id_prefixes:
+      - ENVO
+      - ENVTHES
+    annotations:
+      prompt: >-
+        The described Environment
+      annotators: sqlite:obo:envo, bioportal:envthes
+
+  Characteristic:
+    is_a: NamedEntity
+    annotations:
+      prompt: >-
+        The characteristic of an environment.
+
