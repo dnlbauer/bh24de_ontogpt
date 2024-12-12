@@ -64,3 +64,10 @@ All results were calculated using ollama/mistral:latest (f974a74358d6):
 ```bash
 ontogpt extract -i <input> -t <template> --show-prompt -m ollama/mistral -o <output>
 ```
+
+### Lessons learned
+
+- Prompt engineering is hard: tiny changes to the prompt or even the order of extracted attributes can change the output.
+- The model choice is crucial and the template needs to be tailored to the model. Generally mistral outperformed llama **for me**.
+- The output is language specific. It works better when input is translated to english first.
+- Most LLMs are trained on common terms. It would be interesting to see if a model trained with more scientific datasets of a related topic would perform better.
